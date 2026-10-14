@@ -59,7 +59,7 @@ Give commands full paths: a launchd agent has a short `PATH`.
 
 ## Nix
 
-The flake has the package and a home-manager module (`homeManagerModules.default`), which writes the config from `services.shiki.probes` and runs a launchd agent on macOS or a systemd user service on Linux.
+The flake has the package and a home-manager module (`homeModules.default`), which writes the config from `services.shiki.probes` and runs a launchd agent on macOS or a systemd user service on Linux.
 
 ## Development
 

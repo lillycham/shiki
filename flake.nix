@@ -37,7 +37,7 @@
         tests = withTests pkgs;
       });
 
-      homeManagerModules.default = import ./nix/module.nix { inherit self; };
+      homeModules.default = import ./nix/module.nix { inherit self; };
 
       devShells = forAllSystems (pkgs: {
         default = pkgs.haskellPackages.shellFor {
