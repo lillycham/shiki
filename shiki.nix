@@ -20,6 +20,6 @@ mkDerivation {
     tasty-hunit text time
   ];
   description = "Small probes that report back, as JSON for a dashboard";
-  license = "unknown";
+  license = lib.meta.getLicenseFromSpdxId "MIT";
   mainProgram = "shiki";
 }

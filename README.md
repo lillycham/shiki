@@ -69,3 +69,7 @@ cabal test
 cabal2nix . > shiki.nix   # after a change to shiki.cabal
 nix flake check
 ```
+
+## Licence
+
+MIT. See LICENSE.

@@ -6,7 +6,8 @@ description:
   Shiki runs a list of probes on timers (launchd jobs, HTTP endpoints, file
   ages, directory counts, git repositories and fixed commands) and serves
   their last results as JSON, for a dashboard such as Glance.
-license:            NONE
+license:            MIT
+license-file:       LICENSE
 author:             Lilly Cham
 maintainer:         me@lillycham.com
 copyright:          2026 Lilly Cham
