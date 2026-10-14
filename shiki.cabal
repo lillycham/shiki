@@ -1,0 +1,71 @@
+cabal-version:      3.0
+name:               shiki
+version:            0.1.0.0
+synopsis:           Small probes that report back, as JSON for a dashboard
+description:
+  Shiki runs a list of probes on timers (launchd jobs, HTTP endpoints, file
+  ages, directory counts, git repositories and fixed commands) and serves
+  their last results as JSON, for a dashboard such as Glance.
+license:            NONE
+author:             Lilly Cham
+maintainer:         me@lillycham.com
+copyright:          2026 Lilly Cham
+build-type:         Simple
+extra-doc-files:    README.md
+
+common shared
+    default-language: GHC2021
+    ghc-options:      -Wall -Wprepositive-qualified-module
+
+library
+    import:           shared
+    hs-source-dirs:   src
+    exposed-modules:  Shiki.Types
+                    , Shiki.Probe
+                    , Shiki.Server
+    build-depends:    base >=4 && <5
+                    , aeson
+                    , async
+                    , bytestring
+                    , containers
+                    , directory
+                    , filepath
+                    , http-client
+                    , http-client-tls
+                    , http-types
+                    , process
+                    , stm
+                    , text
+                    , time
+                    , unix
+                    , vector
+                    , wai
+                    , warp
+
+executable shiki
+    import:           shared
+    main-is:          Main.hs
+    hs-source-dirs:   app
+    ghc-options:      -threaded -rtsopts "-with-rtsopts=-N2"
+    build-depends:    base >=4 && <5
+                    , shiki
+                    , optparse-applicative
+                    , text
+
+test-suite shiki-test
+    import:           shared
+    type:             exitcode-stdio-1.0
+    main-is:          Main.hs
+    hs-source-dirs:   test
+    ghc-options:      -threaded -rtsopts "-with-rtsopts=-N"
+    build-depends:    base >=4 && <5
+                    , shiki
+                    , aeson
+                    , containers
+                    , directory
+                    , filepath
+                    , http-client
+                    , tasty
+                    , tasty-hunit
+                    , text
+                    , time
